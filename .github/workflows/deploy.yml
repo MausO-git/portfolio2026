@@ -1,43 +1,43 @@
-# name: Deploy React to o2switch
+name: Deploy React to o2switch
 
-# on:
-#   push:
-#     branches:
-#       - main
+on:
+  push:
+    branches:
+      - main
 
-# env:
-#   # On force l'utilisation de Node 24 pour les scripts internes de GitHub
-#   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+env:
+  # On force l'utilisation de Node 24 pour les scripts internes de GitHub
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
-# jobs:
-#   build-and-deploy:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: 1. Recuperation du code
-#         uses: actions/checkout@v4
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 1. Recuperation du code
+        uses: actions/checkout@v4
 
-#       - name: 2. Installation de Node.js
-#         uses: actions/setup-node@v4
-#         with:
-#           node-version: '24' # On passe sur la version la plus recente
-#           cache: 'npm'
+      - name: 2. Installation de Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24' # On passe sur la version la plus recente
+          cache: 'npm'
 
-#       - name: 3. Installation des dependances
-#         run: npm ci
-#         # run: CI=false npm run build # forcer GitHub à ignorer les petis avertissement ESLINT
+      - name: 3. Installation des dependances
+        run: npm ci
+        # run: CI=false npm run build # forcer GitHub à ignorer les petis avertissement ESLINT
 
-#       - name: 4. Build de l'application React
-#         run: npm run build
+      - name: 4. Build de l'application React
+        run: npm run build
 
-#       - name: 5. Deploiement SFTP sur o2switch
-#         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-#         with:
-#           server: ${{ secrets.SFTP_SERVER }}
-#           username: ${{ secrets.SFTP_USERNAME }}
-#           password: ${{ secrets.SFTP_PASSWORD }}
-#           # port: 22 # pour le SFTP - SSH mais o2switch à une protection IP donc FTPS (secure)
-#           port: 21
-#           protocol: ftps
-#           local-dir: ./build/ # ATTENTION : remplace par ./dist/ si tu utilises Vite !
-#           server-dir: ./public_html/test_ci_cd/
-#           dangerous-clean-slate: false # met true si tu veux vider le dossier avant
+      - name: 5. Deploiement SFTP sur o2switch
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.SFTP_SERVER }}
+          username: ${{ secrets.SFTP_USERNAME }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          # port: 22 # pour le SFTP - SSH mais o2switch à une protection IP donc FTPS (secure)
+          port: 21
+          protocol: ftps
+          local-dir: ./build/ # ATTENTION : remplace par ./dist/ si tu utilises Vite !
+          server-dir: ./public_html/test_ci_cd/
+          dangerous-clean-slate: false # met true si tu veux vider le dossier avant
