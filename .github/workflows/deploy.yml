@@ -39,5 +39,5 @@ jobs:
           port: 21
           protocol: ftps
           local-dir: ./build/ # ATTENTION : remplace par ./dist/ si tu utilises Vite !
-          server-dir: ./public_html/test_ci_cd/
+          server-dir: ./public_html/portfolio2026/
           dangerous-clean-slate: false # met true si tu veux vider le dossier avant
