@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import websitesAPI from "../../services/websitesAPI";
-import symfoImg from "../../symfony.jpg";
 import { formatDate } from "../../tools/text";
 import "./Works.scss";
 import Modal from "../../components/Modal/Modal";
