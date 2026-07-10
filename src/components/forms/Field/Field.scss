@@ -1,0 +1,45 @@
+.form-group{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    label{
+        font-size: 20px;
+        font-weight: 500;
+    }
+    .form-control{
+        height: 30px;
+        background: rgba(255, 255, 255, 0.25);
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        font-size: 18px;
+        font-family: -apple-system, "Manrope", sans-serif;
+        backdrop-filter: blur(12px);
+        border-radius: 10px;
+        padding: 5px;
+        &.is-invalid{
+            border: 1px solid rgb(211, 162, 69);
+        }
+    }
+    textarea.form-control{
+        height: 90px;
+        resize: none;
+    }
+    .invalid-feedback{
+        color: rgb(211, 162, 69);
+    }
+    @media all and (max-width: 450px) {
+        label{
+            font-size: 18px;
+        }
+        .form-control{
+            font-size: 14px;
+        }
+    }
+    @media all and (max-width: 350px) {
+        label{
+            font-size: 16px;
+        }
+        .form-control{
+            font-size: 13px;
+        }
+    }
+}

@@ -1,0 +1,54 @@
+@use "../../../styles/mixins";
+
+.work-admin, .tool-admin{
+    min-height: 100vh;
+    padding-bottom: 10px;
+    @extend %wrapper;
+    form{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        .preview{
+            width: 30%;
+        }
+        .action-button{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            .btn{
+                width: 10%;
+                color: rgb(255, 255, 255);
+                text-align: center;
+                font-size: 13px;
+                padding: 5px;
+                box-sizing: border-box;
+                border-radius: 10px;
+                font-family: -apple-system, "Manrope", sans-serif;
+                cursor: pointer;
+                border: 1px solid rgb(180, 180, 180);
+                transition: all 0.3s ease;
+                &.add{
+                    background-color: rgb(79, 223, 79);
+
+                    &:hover {
+                        background-color: rgb(49, 134, 49);
+                    }
+                }
+                &.edit{
+                    background-color: #a87205;
+
+                    &:hover {
+                        background-color: #714d03;
+                    }
+                }
+                &.cancel{
+                    background-color: #e11111;
+
+                    &:hover {
+                        background-color: #a80505;
+                    }
+                }
+            }
+        }
+    }
+}

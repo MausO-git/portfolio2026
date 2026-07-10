@@ -1,0 +1,174 @@
+@use "../../../styles/mixins";
+
+.tools-admin{
+    min-height: 100vh;
+    @extend %wrapper;
+    .tools-tab {
+        width: fit-content;
+        border-collapse: collapse;
+        margin-top: 30px;
+        font-size: 15px;
+        background: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+
+        thead {
+            background: #f5f5f5;
+
+            th {
+                padding: 12px 8px;
+                text-align: left;
+                font-weight: 600;
+                color: #333;
+                border-bottom: 1px solid #e5e5e5;
+                white-space: nowrap;
+            }
+        }
+
+        tbody {
+            tr {
+                transition: background 0.2s ease;
+
+                &:nth-child(even) {
+                    background: #fafafa;
+                }
+
+                &:hover {
+                    background: #f0f0f0;
+                }
+
+                td {
+                    padding: 5px 8px;
+                    border-bottom: 1px solid #e5e5e5;
+                    color: #444;
+                    vertical-align: middle;
+                    max-width: 200px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    box-sizing: border-box;
+                    &.text {
+                        max-width: 250px;
+                    }
+                    &.action{
+                        max-width: 200px;
+                        display: flex;
+                        gap: 2px;
+                        flex-wrap: wrap;
+                        .action-button {
+                            padding: 6px 12px;
+                            border-radius: 6px;
+                            border: none;
+                            cursor: pointer;
+                            font-size: 14px;
+                            transition: 0.2s ease;
+                            font-family: -apple-system, "Manrope", sans-serif;
+
+                            &.modif {
+                                background: #a87205;
+                                color: rgb(255, 255, 255);
+
+                                &:hover {
+                                    background: #714d03;
+                                }
+                            }
+
+                            &.supp {
+                                background: #b61776;
+                                color: white;
+
+                                &:hover {
+                                    background: #770f4d;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                
+            }
+        }
+    }
+
+    /* ✅ Conteneur scroll horizontal */
+    .table-container {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 10px;
+
+    .tools-tab {
+        min-width: 900px; // largeur minimale pour éviter la compression
+    }
+    }
+
+    /* Responsive */
+    @media all and (max-width: 1530px) {
+        .tools-tab{
+            tbody{
+                tr{
+                    td{
+                        max-width: 150px;
+                        &.text{
+                            max-width: 200px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media all and (max-width: 1300px) {
+        .tools-tab{
+            tbody{
+                tr{
+                    td{
+                        max-width: 100px;
+                        &.text{
+                            max-width: 150px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media (max-width: 910px) {
+        .tools-tab {
+            font-size: 13px;
+            tbody{
+                tr{
+                    td{
+                        &.action{
+                            .action-button{
+                                font-size: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            thead th,
+            tbody td {
+                padding: 8px;
+            }
+        }
+    }
+    .add{
+        display: inline-block;
+        margin-top: 30px;
+        background-color: rgb(79, 223, 79);
+        font-family: -apple-system, "Manrope", sans-serif;
+        font-size: 18px;
+        font-weight: 500;
+        padding: 10px 15px;
+        border-radius: 15px;
+        cursor: pointer;
+        border: 1px solid rgba(121, 121, 121, 0.3);
+        font-size: 18px;
+        transition: all 0.2s ease;
+        margin: 40px 0;
+
+        &:hover{
+            background-color: rgb(49, 134, 49);
+        }
+    }
+}

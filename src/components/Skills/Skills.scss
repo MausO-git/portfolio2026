@@ -1,0 +1,88 @@
+@use "../../styles/mixins";
+@use "../../styles/variables" as vr;
+
+.skillTitle{
+    padding-left: 5%;
+    margin-bottom: 30px;
+}
+
+.grid.skill{
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px 0;
+    justify-items: center;
+    .grid-elem{
+        position: relative;
+        border: 1px solid #e3ded6;
+        padding: 15px 0;
+        filter: blur(100%);
+        background-color: vr.$bg3;
+        border-radius: 20px;
+        width: 60%;
+        z-index: 10;
+        @extend %flex-center;
+        flex-direction: column;
+        gap: 8px;
+        transition: all 0.2s ease-in;
+        .name{
+            font-size: 20px;
+            font-weight: 500;
+        }
+        img{
+            width: 150px;
+        }
+
+        &:hover{
+            filter: drop-shadow(0px 0px 15px rgba(216,185,138));
+        }
+    }
+
+    @media all and (max-width: 1000px) {
+        .grid-elem{
+            width: 70%;
+        }
+    }
+    @media all and (max-width: 900px) {
+        .grid-elem{
+            width: 80%;
+        }
+    }
+    @media all and (max-width: 780px) {
+        grid-template-columns: repeat(2, 1fr);
+        .grid-elem{
+            width: 70%;
+        }
+    }
+    @media all and (max-width: 650px) {
+        .grid-elem{
+            width: 80%;
+        }
+    }
+    @media all and (max-width: 580px) {
+        .grid-elem{
+            .name{
+                font-size: 18px;
+            }
+            img{
+                width: 100px;
+            }
+        }
+    }
+    @media all and (max-width: 500px) {
+        .grid-elem{
+            width: 85%;
+        }
+    }
+    @media all and (max-width: 430px) {
+        .grid-elem{
+            width: 90%;
+            .name{
+                font-size: 16px;
+            }
+            img{
+                width: 80px;
+            }
+        }
+    }
+}

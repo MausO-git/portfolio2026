@@ -1,0 +1,65 @@
+@use "../../../styles/mixins";
+@use "../../../styles/variables" as vr;
+
+.admin-home{
+    height: 100vh;
+    position: relative;
+    @extend %wrapper;
+    @extend %flex-center;
+    h1{
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .jumbotron{
+        @extend %flex-center;
+        flex-direction: column;
+        gap: 30px;
+        width: 60%;
+        background: vr.$bg2;
+        border-radius: 15px;
+        padding: 20px 0;
+        box-sizing: border-box;
+        .link{
+            font-size: 20px;
+            font-weight: 500;
+            transition: all 0.2s ease-out;
+            &:hover{
+                color: whitesmoke;
+            }
+        }
+        .logout{
+            font-size: 16px;
+            font-family: -apple-system, "Manrope", sans-serif;
+            padding: 5px 10px;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: all 0.2s ease-out;
+            &:hover{
+                background-color: rgb(150, 128, 128);
+                color: whitesmoke;
+            }
+        }
+    }
+    @media all and (max-width: 450px) {
+        h1{
+            font-size: 28px;
+        }
+        .jumbotron{
+            .link{
+                font-size: 18px;
+            }
+        }
+    }
+    @media all and (max-width: 450px) {
+        .jumbotron{
+            .link{
+                font-size: 16px;
+            }
+            .logout{
+                font-size: 14px;
+            }
+        }
+    }
+}

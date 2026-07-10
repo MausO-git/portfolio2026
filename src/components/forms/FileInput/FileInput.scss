@@ -1,0 +1,17 @@
+.file-input{
+    display: flex;
+    flex-direction: column;
+    label{
+        font-size: 20px;
+        font-weight: 500;
+    }
+    input{
+        margin: 10px 0;
+    }
+    .preview{
+        width: 30%;
+    }
+    p{
+        margin: 0;
+    }
+}

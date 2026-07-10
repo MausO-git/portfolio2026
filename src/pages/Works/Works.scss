@@ -1,0 +1,124 @@
+@use "../../styles/variables" as vr;
+@use "../../styles/mixins";
+
+
+
+.work-page{
+    @extend %wrapper;
+    .works{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-content: center;
+        justify-items: center;
+        gap: 50px 0;
+        min-height: 100vh;
+        padding: 50px;
+        .work{
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 15px;
+            padding: 15px 0;
+            width: 80%;
+            .title{
+                width: 100%;
+                text-align: center;
+                font-size: 17px;
+                font-weight: bold;
+                height: 40px;
+                margin-bottom: 5px;
+                @extend %flex-center;
+            }
+            .cover{
+                width: 100%;
+                position: relative;
+                overflow: hidden;
+                img{
+                    width: 100%;
+                    transition: transform 0.4s ease;
+                }
+                &:hover img {
+                    transform: scale(1.05);
+                }
+                &::after {
+                    content: "";
+                    position: absolute;
+                    inset: 0;
+                    background: linear-gradient(180deg, transparent, rgba(0,0,0,0.25));
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                }
+    
+                &:hover::after {
+                    opacity: 1;
+                }
+            }
+            .tools {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                margin-top: 10px;
+    
+                .tool {
+                    background: rgba(255, 255, 255, 0.2);
+                    border-radius: 8px;
+                    padding: 5px;
+                    transition: background 0.3s ease;
+    
+                    &:hover {
+                    background: rgba(255, 255, 255, 0.4);
+                    }
+    
+                    img {
+                    height: 25px;
+                    }
+                }
+            }
+            .createdAt{
+                text-align: center;
+            }
+            &:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+            }
+        }
+        &.one{
+            grid-template-columns: 1fr;
+        }
+        @media all and (max-width: 1200px) {
+            grid-template-columns: 1fr 1fr;
+        }
+        @media all and (max-width: 800px) {
+            .work{
+                width: 90%;
+            }
+        }
+        @media all and (max-width: 680px) {
+            .work{
+                .title{
+                    font-size: 15px;
+                }
+                .createdAt{
+                    font-size: 14px;
+                }
+            }
+        }
+        @media all and (max-width: 540px) {
+            grid-template-columns: 1fr;
+        }
+        @media all and (max-width: 430px) {
+            .work{
+                width: 100%;
+            }
+        }
+    }
+
+    @media all and (max-width: 540px) {
+        h1{
+            padding-left: 5%;
+        }
+    }
+}

@@ -1,0 +1,107 @@
+@use "../../styles/reset";
+@use "../../styles/variables" as vr;
+@use "../../styles/mixins";
+
+.card{
+    text-align: center;
+    cursor: pointer;
+    width: 90%;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+        .cover{
+            img{
+                filter: drop-shadow(0px 0px 20px rgba(216,185,138));
+                transform: scale(1.01);
+            }
+        }
+    }
+    .cover{
+        height: 200px;
+        width: 100%;
+        @extend %flex-center;
+        img{
+            height: 100%;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+    }
+    .desc{
+        padding: 10px;
+    }
+    .tools{
+        box-sizing: border-box;
+        padding: 10px;
+        width: 100%;
+        @extend %flex-center;
+        gap: 10px;
+        img{
+            width: 10%;
+        }
+    }
+    .gitLink, .siteLink{
+        font-weight: 600;
+        .gr{
+            @extend %flex-center;
+            gap: 10px;
+            transition: all 0.2s ease-in-out;
+            .fa{
+                color: black;
+            }
+            &:hover{
+                transform: scale(1.1);
+                a, .fa{
+                    color: rgb(228, 185, 104);
+                }
+            }
+        }
+    }
+    .siteLink, .gitLink, .createdAt{
+        padding: 20px 0;
+    }
+    .desc, .tools, .siteLink, .gitLink{
+        border-bottom: 1px solid black;
+    }
+    @media all and (max-width: 1500px) {
+        .cover{
+            height: 170px;
+        }
+    }
+    @media all and (max-width: 1200px) {
+        .title{
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            font-size: 15px;
+        }
+        .desc, .gitLink, .siteLink, .createdAt{
+            font-size: 14px;
+        }
+        .cover{
+            height: 150px;
+        }
+    }
+    @media all and (max-width: 800px) {
+        .cover{
+            height: 120px;
+        }
+    }
+    @media all and (max-width: 650px){
+        width: 70%;
+    }
+    @media all and (max-width: 500px){
+        width: 75%;
+    }
+    @media all and (max-width: 430px){
+        width: 80%;
+    }
+    @media all and (max-width: 380px){
+        width: 90%;
+    }
+}
